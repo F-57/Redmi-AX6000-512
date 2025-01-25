@@ -67,6 +67,7 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        ./scripts/feeds update -a
 
     - name: 去除重复应用包
       run: |
@@ -77,10 +78,9 @@ jobs:
         sed -i 's/mosdns_neo/mosdns/g' ./feeds/packages/net/mosdns/Makefile
         sudo rm -rf ./feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
     
-    - name: 更新 & 安装 feeds
+    - name: 安装 feeds
       run: |
         cd openwrt
-        ./scripts/feeds update -a
         ./scripts/feeds install -a
       
     - name: 加载config & DIY_P2_SH
