@@ -19,10 +19,11 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 # ---------------------------------------------------------------
-
-
-
-
+## mosdns
+rm -rf ./feeds/packages/net/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns package/mosdns 
+git clone https://github.com/sbwml/v2ray-geodata package/geodata
+# ---------------------------------------------------------------
 
 
 
