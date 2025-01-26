@@ -18,7 +18,7 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 # 删除冲突
 
 rm -rf feeds/packages/net/mosdns
