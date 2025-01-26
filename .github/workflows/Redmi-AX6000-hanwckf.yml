@@ -147,7 +147,7 @@ jobs:
             Default password: password
             
             插件列表： 
-              ├ OpenClash + 全部内核 + GeoIP 数据库 + GeoSite 数据库
+              ├ OpenClash + MosDns + GeoIP 数据库 + GeoSite 数据库
         
     - name: 删除工作流程运行
       uses: Mattraks/delete-workflow-runs@main
