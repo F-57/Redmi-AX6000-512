@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
 # 安装前置 mosdns 5.3.1
 # rm -rf feeds/packages/lang/golang
@@ -48,11 +48,11 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 # ##---------------------------------------------------------
 
 # ##-------------- GeoIP 数据库 -----------------------------
-curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o /tmp/GeoIP.dat
-mv /tmp/GeoIP.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat >/dev/null 2>&1
+#curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o /tmp/GeoIP.dat
+#mv /tmp/GeoIP.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat >/dev/null 2>&1
 # ##---------------------------------------------------------
 
 # ##-------------- GeoSite 数据库 ---------------------------
-curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o /tmp/GeoSite.dat
-mv -f /tmp/GeoSite.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat >/dev/null 2>&1
+#curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o /tmp/GeoSite.dat
+#mv -f /tmp/GeoSite.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat >/dev/null 2>&1
 # ##---------------------------------------------------------
