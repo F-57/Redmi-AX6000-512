@@ -41,10 +41,10 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 # ---------------------------------------------------------------
 
 # ##------------- meta core ---------------------------------
-curl -sL -m 30 --retry 2 https://github.com/MetaCubeX/mihomo/releases/download/v1.18.8/mihomo-linux-arm64-v1.18.8.gz -o /tmp/clash_meta.tar.gz
-tar zxvf /tmp/clash_meta.tar.gz -C /tmp >/dev/null 2>&1
-chmod +x /tmp/clash >/dev/null 2>&1
-mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core >/dev/null 2>&1
+#curl -sL -m 30 --retry 2 https://github.com/MetaCubeX/mihomo/releases/download/v1.18.8/mihomo-linux-arm64-v1.18.8.gz -o /tmp/clash_meta.tar.gz
+#tar zxvf /tmp/clash_meta.tar.gz -C /tmp >/dev/null 2>&1
+#chmod +x /tmp/clash >/dev/null 2>&1
+#mv /tmp/clash feeds/luci/applications/luci-app-openclash/root/etc/openclash/core >/dev/null 2>&1
 # ##---------------------------------------------------------
 
 # ##-------------- GeoIP 数据库 -----------------------------
