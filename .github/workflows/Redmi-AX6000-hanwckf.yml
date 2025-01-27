@@ -22,8 +22,8 @@ on:
 #    - cron: 0 16 * * *
 
 env:
-  REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-23.05
-  REPO_BRANCH: openwrt-23.05
+  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
+  REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -147,7 +147,7 @@ jobs:
             Default password: password
             
             插件列表： 
-              ├ OpenClash + MosDns + GeoIP 数据库 + GeoSite 数据库
+              ├ OpenClash + 全部内核 + GeoIP 数据库 + GeoSite 数据库
         
     - name: 删除工作流程运行
       uses: Mattraks/delete-workflow-runs@main
