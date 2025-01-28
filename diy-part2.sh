@@ -25,6 +25,8 @@ rm -rf feeds/packages/net/mosdns
 rm -rf package/feeds/packages/mosdns
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf package/feeds/packages/v2ray-geodata
+rm -rf feeds/packages/net/airconnect
+rm -rf package/feeds/packages/airconnect
 #rm -rf feeds/packages/net/alist
 #rm -rf package/feeds/packages/alist
 
