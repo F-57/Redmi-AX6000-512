@@ -29,6 +29,7 @@ rm -rf feeds/packages/net/airconnect
 rm -rf package/feeds/packages/airconnect
 #rm -rf feeds/packages/net/alist
 #rm -rf package/feeds/packages/alist
+#rm -rf feeds/luci/applications/luci-app-alist
 
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
