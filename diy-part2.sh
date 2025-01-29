@@ -16,21 +16,20 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # 安装前置 mosdns 5.3.1
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
-
 # 删除冲突
 rm -rf feeds/packages/net/mosdns
 rm -rf package/feeds/packages/mosdns
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf package/feeds/packages/v2ray-geodata
-
-rm -rf feeds/packages/net/airconnect
-rm -rf package/feeds/packages/airconnect
-
-
+# 获取MosDNSluci-app-mosdns
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+# 获取隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
+# 获取定时设置luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+# 获取应用过滤luci-app-oaf
+git clone https://github.com/destan19/OpenAppFilter package/luci-app-oaf
 
 # ---------------------------------------------------------------
 ## OpenClash
