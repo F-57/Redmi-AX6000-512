@@ -30,8 +30,8 @@ git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 # 魔改版luci-app-control-weburl，和原版相比可以多种控制模式：关键字过滤、MAC黑名单
 git clone https://github.com/gdck/luci-app-control-weburl package/luci-app-control-weburl
-# 获取应用过滤luci-app-oaf
-git clone https://github.com/destan19/OpenAppFilter package/luci-app-oaf
+# EQS网速控制
+git clone https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 # 获取家长控制luci-app-parentcontrol
 git clone https://github.com/sirpdboy/luci-app-parentcontrol package/luci-app-parentcontrol
 # ---------------------------------------------------------------
