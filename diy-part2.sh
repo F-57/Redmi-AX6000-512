@@ -17,7 +17,6 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 # 删除冲突
-
 rm -rf feeds/packages/net/mosdns
 rm -rf package/feeds/packages/mosdns
 rm -rf feeds/packages/net/v2ray-geodata
@@ -30,6 +29,7 @@ rm -rf package/feeds/packages/airconnect
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
+git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
 # ---------------------------------------------------------------
 ## OpenClash
