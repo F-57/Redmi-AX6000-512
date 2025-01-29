@@ -28,6 +28,8 @@ git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 # 获取定时设置luci-app-autotimeset
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+# 魔改版luci-app-control-weburl，和原版相比可以多种控制模式：关键字过滤、MAC黑名单
+git clone https://github.com/gdck/luci-app-control-weburl package/luci-app-control-weburl
 # 获取应用过滤luci-app-oaf
 git clone https://github.com/destan19/OpenAppFilter package/luci-app-oaf
 # 获取eqosplus定时限速插件luci-app-eqosplus
