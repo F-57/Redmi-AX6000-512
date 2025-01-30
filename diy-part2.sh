@@ -27,11 +27,11 @@ git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 # 获取隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 # 获取定时设置luci-app-autotimeset
-git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+#git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 # EQS网速控制
-git clone https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
+#git clone https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 # 获取家长控制luci-app-parentcontrol
-git clone https://github.com/sirpdboy/luci-app-parentcontrol package/luci-app-parentcontrol
+#git clone https://github.com/sirpdboy/luci-app-parentcontrol package/luci-app-parentcontrol
 # ---------------------------------------------------------------
 ## OpenClash
 # git clone -b v0.45.141-beta --depth=1 https://github.com/vernesong/openclash.git OpenClash
