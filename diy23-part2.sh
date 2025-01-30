@@ -50,11 +50,6 @@ sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config
 ##加入作者信息
 sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWRT-$(date +%Y%m%d)'/g"  package/base-files/files/etc/openwrt_release
 sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By LesLie.W'/g" package/base-files/files/etc/openwrt_release
-# cp -af feeds/extraipk/patch/diy/banner-easy  package/base-files/files/etc/banner
-
-# sed -i "2iuci set istore.istore.channel='leslie_w'" package/emortal/default-settings/files/99-default-settings
-# sed -i "3iuci commit istore" package/emortal/default-settings/files/99-default-settings
-
 
 ##FQ全部调到VPN菜单
 # sed -i 's/services/vpn/g' package/feeds/luci/luci-app-ssr-plus/luasrc/controller/*.lua
@@ -106,12 +101,11 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git
 
 # 移除 openwrt feeds 自带的核心包
 # rm -rf $GITHUB_WORKSPACE/openwrt/feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
-# rm -rf  $GITHUB_WORKSPACE/openwrt/feeds/jell/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+# rm -rf $GITHUB_WORKSPACE/openwrt/feeds/jell/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
 
 # 更新 golang 1.22 版本
-cd $GITHUB_WORKSPACE/openwrt
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 # 更新 chinadns-ng 版本
 #svn co https://github.com/xiaorouji/openwrt-passwall-packages/trunk/chinadns-ng/ $GITHUB_WORKSPACE/openwrt/feeds/jell/chinadns-ng
@@ -129,15 +123,8 @@ git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/l
 # cd ..
 # rm -rf temp_chinadns-ng
 
-merge_package master https://github.com/coolsnowwolf/lede.git package/feeds/NueXini_Packages package/lean/vsftpd-alt
-
-cd $GITHUB_WORKSPACE/openwrt
-sed -i '/luci-app-upnp/d' ./.config
-sed -i '/miniupnpd/d' ./.config
-
 echo "CONFIG_PACKAGE_luci-app-upnp=n" >> ./.config
 echo "CONFIG_PACKAGE_miniupnpd=n" >> ./.config
-
 echo "CONFIG_PACKAGE_luci-app-homeproxy=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-mihomo=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-upnp-mtk-adjust=y" >> ./.config
