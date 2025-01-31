@@ -32,6 +32,8 @@ git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 #git clone https://github.com/sirpdboy/luci-app-eqosplus package/luci-app-eqosplus
 # 获取家长控制luci-app-parentcontrol
 #git clone https://github.com/sirpdboy/luci-app-parentcontrol package/luci-app-parentcontrol
+# 让局域网客户端访问不同子网的AP或光猫
+git clone https://github.com/Turing-China/luci-app-ap-modem package/luci-app-ap-modem
 # ---------------------------------------------------------------
 ## OpenClash
 # git clone -b v0.45.141-beta --depth=1 https://github.com/vernesong/openclash.git OpenClash
