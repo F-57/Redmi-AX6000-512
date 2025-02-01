@@ -140,6 +140,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
             redmi-ax6000 固件精简版, 闭源驱动
+            完整软件源支持 系统-软件包中直接安装内核模块
             基于openwrt-21.02, kernel 5.4, 编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 192.168.1.2
