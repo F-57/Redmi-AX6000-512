@@ -33,5 +33,5 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-
+git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
