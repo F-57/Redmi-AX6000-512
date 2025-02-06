@@ -11,13 +11,10 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.1.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 ## luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-
-## 网络唤醒
-git clone https://github.com/animegasan/luci-app-wolplus package/luci-app-wolplus
+#git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 
 ## 安装前置 mosdns
 rm -rf feeds/packages/lang/golang
