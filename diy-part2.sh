@@ -12,6 +12,7 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/ImHome/g' package/base-files/files/bin/config_generate
 
 ## luci-app-adguardhome
 #git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
