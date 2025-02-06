@@ -36,3 +36,4 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 ## luci-app-adguardhome
 git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 
+git clone https://github.com/animegasan/luci-app-wolplus package/luci-app-wolplus
