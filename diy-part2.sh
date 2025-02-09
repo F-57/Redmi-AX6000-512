@@ -52,3 +52,38 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 ## GeoSite 数据库
 #curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o /tmp/GeoSite.dat
 #mv -f /tmp/GeoSite.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat >/dev/null 2>&1
+
+
+
+# 更改默认主题背景
+#cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+
+# ttyd自动登录
+#sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
+
+# 调整菜单
+#sed -i 's/services/control/g' feeds/luci/applications/luci-app-eqos/root/usr/share/luci/menu.d/*.json
+#sed -i 's/services/control/g' feeds/luci/applications/luci-app-nft-qos/luasrc/controller/*.lua
+#sed -i 's/services/nas/g' feeds/luci/applications/luci-app-ksmbd/root/usr/share/luci/menu.d/*.json
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+#sed -i 's/services/vpn/g' package/luci-app-openclash/luasrc/view/openclash/*.htm
+#sed -i 's|admin/network|admin/control|g' package/luci-app-sqm/root/usr/share/luci/menu.d/*.json
+
+# 修改插件名字
+#replace_text() {
+#  search_text="$1" new_text="$2"
+#  sed -i "s/$search_text/$new_text/g" $(grep "$search_text" -rl ./ 2>/dev/null) || echo -e "\e[31mNot found [$search_text]\e[0m"
+#}
+
+#replace_text "Argon 主题设置" "主题设置"
+#replace_text "DDNS-Go" "DDNSGO"
+#replace_text "DDNSTO 远程控制" "DDNSTO"
+#replace_text "KMS 服务器" "KMS激活"
+#replace_text "QoS Nftables 版" "QoS管理"
+#replace_text "SQM 队列管理" "SQM管理"
+#replace_text "动态 DNS" "动态DNS"
+#replace_text "网络存储" "NAS"
+#replace_text "解除网易云音乐播放限制" "音乐解锁"
+
+#echo -e "\e[32m$0 [DONE]\e[0m"
