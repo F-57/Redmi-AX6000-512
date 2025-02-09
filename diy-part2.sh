@@ -75,6 +75,7 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 #  search_text="$1" new_text="$2"
 #  sed -i "s/$search_text/$new_text/g" $(grep "$search_text" -rl ./ 2>/dev/null) || echo -e "\e[31mNot found [$search_text]\e[0m"
 #}
+#。 msgstr "MosDNS"
 
 #replace_text "Argon 主题设置" "主题设置"
 #replace_text "DDNS-Go" "DDNSGO"
