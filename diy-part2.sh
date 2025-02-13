@@ -34,7 +34,6 @@ git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 ## 获取隔空播放ddns-go
 git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 
-git clone https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git package/cdnspeedtest
 git clone https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest.git package/cloudflarespeedtest
 
 ## OpenClash
