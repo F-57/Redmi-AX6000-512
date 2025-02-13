@@ -34,7 +34,8 @@ git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 ## 获取隔空播放ddns-go
 git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
 
-git clone https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest package/cloudflarespeedtest
+git clone https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git package/cdnspeedtest
+git clone https://github.com/mingxiaoyu/luci-app-cloudflarespeedtest.git package/cloudflarespeedtest
 
 ## OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
@@ -54,8 +55,6 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 ## GeoSite 数据库
 #curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o /tmp/GeoSite.dat
 #mv -f /tmp/GeoSite.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat >/dev/null 2>&1
-
-
 
 # 更改默认主题背景
 #cp -f $GITHUB_WORKSPACE/images/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
