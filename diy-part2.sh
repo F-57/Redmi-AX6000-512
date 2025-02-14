@@ -60,7 +60,7 @@ git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-auto
 # echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
+# echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 
 # echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
