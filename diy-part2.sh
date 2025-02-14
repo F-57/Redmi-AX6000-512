@@ -69,6 +69,5 @@ echo "CONFIG_PACKAGE_luci-app-ddns-go=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-socat=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
