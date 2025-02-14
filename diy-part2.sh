@@ -53,7 +53,22 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-netwizard package/luci-
 # 进阶设置
 git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 
-
-echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
+# 软件包与配置
+# echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
+# echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
+# echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+# echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
+
+echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-ddns-go=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-socat=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
