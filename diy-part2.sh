@@ -13,10 +13,10 @@
 # 修改ip
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改名称
-sed -i "s/hostname='.*'/hostname='ZeroWrt'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='CaoWrt'/g" package/base-files/files/bin/config_generate
 # 修改 WiFi
-sed -i "s/ImmortalWrt-2.4G/Mr.C/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i "s/ImmortalWrt-5G/Me/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+# sed -i "s/ImmortalWrt-2.4G/Mr.C/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+# sed -i "s/ImmortalWrt-5G/Me/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
