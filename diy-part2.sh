@@ -59,7 +59,7 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 # echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
-
+echo "CONFIG_PACKAGE_luci-proto-bonding=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
