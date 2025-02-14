@@ -55,5 +55,5 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 
 
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
+# echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
