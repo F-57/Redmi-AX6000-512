@@ -55,6 +55,12 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 # 定时设置
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
+# 更改菜单
+sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
+sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
+
 # 软件包与配置
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
 # echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
