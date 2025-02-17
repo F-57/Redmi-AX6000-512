@@ -61,6 +61,10 @@ sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
 sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
 sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
 
+# 更改菜单
+echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+echo -e "msgstr \"魔法\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+
 # 软件包与配置
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
 # echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
