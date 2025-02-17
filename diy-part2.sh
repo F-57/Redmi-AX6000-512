@@ -56,12 +56,12 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
 # 更改菜单
-sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
-sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
-sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
+#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
+#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
+#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
+#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
 
-# 更改菜单
+# 更改菜单名字
 echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
 echo -e "msgstr \"魔法\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
 
@@ -74,7 +74,7 @@ echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 
 # echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
