@@ -62,8 +62,8 @@ git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-auto
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 更改菜单名字
-echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-echo -e "msgstr \"魔法\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+#echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+#echo -e "msgstr \"魔法\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
 
 # 软件包与配置
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
