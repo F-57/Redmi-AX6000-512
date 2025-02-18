@@ -23,6 +23,7 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 
 # Theme
 git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat -b js
+git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design -b js
 
 ## luci-app-adguardhome
 git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
@@ -86,3 +87,4 @@ echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
+echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
