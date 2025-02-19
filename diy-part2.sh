@@ -56,6 +56,9 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 # 定时设置
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
+# lucky
+git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
+
 # 更改菜单
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
@@ -80,11 +83,12 @@ echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-ddns-go=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-socat=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-ddns-go=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-socat=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
