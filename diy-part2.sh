@@ -22,7 +22,7 @@ sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # Theme
-git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat -b js
+# git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat -b js
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
 ## luci-app-adguardhome
@@ -49,15 +49,17 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-# 一键配置拨号
-git clone https://github.com/caiweill/luci-app-netwizard package/luci-app-netwizard
-# 进阶设置
-git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
-# 定时设置
-git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-
-# lucky
+## lucky
 git clone https://github.com/caiweill/luci-app-lucky package/lucky
+
+# 一键配置拨号
+# git clone https://github.com/caiweill/luci-app-netwizard package/luci-app-netwizard
+
+# 进阶设置
+# git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
+
+# 定时设置
+# git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
 # 更改菜单
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
@@ -77,7 +79,7 @@ echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 
-# echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
@@ -88,7 +90,7 @@ echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
-echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
+#echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
