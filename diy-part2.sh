@@ -79,7 +79,7 @@ echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 
-#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
