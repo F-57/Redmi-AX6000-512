@@ -57,7 +57,7 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
 # lucky
-git clone  https://github.com/gdy666/luci-app-lucky.git package/lucky
+git clone https://github.com/caiweill/luci-app-lucky package/lucky
 
 # 更改菜单
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
