@@ -26,7 +26,7 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
 ## luci-app-adguardhome
-git clone https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+git clone https://github.com/xptsp/luci-app-adguardhome package/luci-app-adguardhome
 
 ## 安装前置 mosdns
 rm -rf feeds/packages/lang/golang
