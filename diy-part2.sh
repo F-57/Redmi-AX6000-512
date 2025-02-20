@@ -75,7 +75,7 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 
 # 软件包与配置
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
-# echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 # echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
