@@ -41,9 +41,6 @@ git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 ## 获取隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
-## 获取ddns-go
-git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
-
 ## OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -74,7 +71,7 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 # 软件包与配置
 
 # 主题
-#echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
+echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 # 终端
 #echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
