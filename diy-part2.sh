@@ -15,8 +15,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改名称
 sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config_generate
 # 修改 WiFi
-# sed -i "s/ImmortalWrt-2.4G/Mr.C/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-# sed -i "s/ImmortalWrt-5G/Me/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
@@ -73,25 +73,25 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 
 # 软件包与配置
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
-echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
-# echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
-# echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 
-echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-ddns-go=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-socat=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 #echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
