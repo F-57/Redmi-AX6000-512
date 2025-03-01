@@ -73,29 +73,29 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 # 主题
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 # 终端
-#echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
-#echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 # 网络向导
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
-#echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 # 多拨插件 负载均衡
-#echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
 # 转播
-#echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 # 常用
 #echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 
 
 
