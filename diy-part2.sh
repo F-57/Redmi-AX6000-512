@@ -65,8 +65,8 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 #sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 更改菜单名字
-#echo -e "\nmsgid \"VPN\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-#echo -e "msgstr \"魔法\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
 # 软件包与配置
 
