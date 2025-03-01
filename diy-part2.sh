@@ -19,7 +19,7 @@ sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" package/mtk/applications/mtwifi-cfg/fi
 sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 
 # ttyd自动登录
-#sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
+sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # Theme
 # git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat -b js
