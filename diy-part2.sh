@@ -67,6 +67,8 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+#echo -e "\nmsgid \"MosDNS\"" >> package/mosdns
+#echo -e "msgstr \"域名分流\"" >> package/mosdns
 
 # 软件包与配置
 
