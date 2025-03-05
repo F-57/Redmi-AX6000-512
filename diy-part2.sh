@@ -9,7 +9,6 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 
-
 # 修改ip
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改名称
@@ -22,13 +21,12 @@ sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # Theme
-# git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat -b js
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
-## luci-app-adguardhome
+# luci-app-adguardhome
 git clone https://github.com/xiaoxiao29/luci-app-adguardhome package/luci-app-adguardhome
 
-## 安装前置 mosdns
+# 安装 mosdns
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
 rm -rf package/feeds/packages/mosdns
@@ -38,15 +36,19 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-## 获取隔空播放luci-app-airconnect
+# 获取隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
-## OpenClash
+# OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-## lucky
+# luci-app-tailscale
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+
+# lucky
 git clone https://github.com/caiweill/luci-app-lucky package/lucky
 
 # 一键配置拨号
@@ -58,11 +60,6 @@ git clone https://github.com/caiweill/luci-app-lucky package/lucky
 # 定时设置
 # git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 
-# 更改菜单
-#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/controller/*.lua
-#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/*.lua
-#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/model/cbi/openclash/*.lua
-#sed -i 's/services/vpn/g' package/feeds/luci/luci-app-openclash/luasrc/view/openclash/*.htm
 
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
@@ -110,6 +107,4 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-
-
-
+echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
