@@ -45,8 +45,8 @@ rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 # luci-app-tailscale
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
-git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+#sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+#git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
 # lucky
 git clone https://github.com/caiweill/luci-app-lucky package/lucky
@@ -107,4 +107,4 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
