@@ -49,7 +49,7 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 #git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
 # lucky
-git clone https://github.com/caiweill/luci-app-lucky package/lucky
+git clone https://github.com/gdy666/luci-app-lucky package/lucky
 
 # 一键配置拨号
 # git clone https://github.com/caiweill/luci-app-netwizard package/luci-app-netwizard
@@ -74,8 +74,6 @@ echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh
 echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 
-echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh-cn/lucky.po
-echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh-cn/lucky.po
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
