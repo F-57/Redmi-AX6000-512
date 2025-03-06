@@ -49,7 +49,7 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 #git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
 # lucky
-git clone https://github.com/gdy666/luci-app-lucky package/lucky
+git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
 # 一键配置拨号
 # git clone https://github.com/caiweill/luci-app-netwizard package/luci-app-netwizard
