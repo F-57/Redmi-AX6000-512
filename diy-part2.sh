@@ -75,9 +75,9 @@ echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/application
 echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh-cn/lucky.po
-echo -e "msgstr \"动态域名\"" >> package/lucky/luci-app-lucky/po/zh-cn/lucky.po
+echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh-cn/lucky.po
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-echo -e "msgstr \"动态域名\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
 # 软件包与配置
 
@@ -91,15 +91,15 @@ echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
 echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 # 多拨插件 负载均衡
-echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
 # 转播
-echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 # 常用
 #echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
