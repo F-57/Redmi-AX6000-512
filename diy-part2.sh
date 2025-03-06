@@ -24,7 +24,7 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
 # luci-app-adguardhome
-git clone https://github.com/xiaoxiao29/luci-app-adguardhome package/luci-app-adguardhome
+#git clone https://github.com/xiaoxiao29/luci-app-adguardhome package/luci-app-adguardhome
 
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
@@ -84,11 +84,11 @@ echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 # 终端
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
-echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 # 网络向导
 #echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
 # 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
-echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
