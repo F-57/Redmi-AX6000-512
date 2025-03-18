@@ -133,7 +133,7 @@ jobs:
       uses: ncipollo/release-action@main
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && (!cancelled())
       with:
-        tag: v${{ env.FILE_DATE }}-redmi_ax6000
+        tag: ${{ env.FILE_DATE }}-redmi_ax6000
         removeArtifacts: false
         artifacts: ${{ env.FIRMWARE }}/*
         allowUpdates: true
