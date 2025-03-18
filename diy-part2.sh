@@ -78,7 +78,7 @@ echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
 echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-echo -e "msgstr \"隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+echo -e "msgstr \"WG隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
 # 软件包与配置
 
