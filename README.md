@@ -1,6 +1,7 @@
-地址: **192.168.6.1**<br>
+地址: **10.0.0.1**<br>
 用户名: **root**<br>
-密码: **password**
+密码: **无**
+Wi-Fi: **AX6000**
 
 
 **Redmi-AX6000-hanwckf**
@@ -12,9 +13,15 @@ luci-app-opkg
 luci-app-turboacc-mtk
 luci-app-upnp
 luci-theme-argon
+luci-theme-design
 luci-theme-bootstrap
 luci-app-ttyd
-luci-app-openclash v0.46.014-beta + 全部内核 + GeoIP 数据库 + GeoSite 数据库
+luci-app-eqos-mtk
+luci-app-mosdns
+luci-app-lucky
+luci-app-airconnect
+luci-app-wireguard
+luci-app-openclash
 ```
 
 **OpenClash 设置**
