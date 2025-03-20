@@ -101,24 +101,18 @@ echo -e "msgstr \"虚拟路由\"" >> package/luci-app-tailscale/po/zh_Hans/tails
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
 #echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
-
 #echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
-# 多拨插件 负载均衡
 #echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
-# 转播
 #echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
-# 常用
-
-echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
-
 #echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
