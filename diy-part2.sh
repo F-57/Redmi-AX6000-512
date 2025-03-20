@@ -21,17 +21,7 @@ sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # Theme
-#git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
-#修改argon主题字体和颜色
-if [ -d *"luci-theme-argon"* ]; then
-	cd ./luci-theme-argon/
-
-	sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find ./luci-theme-argon -type f -iname "*.css")
-	sed -i "s/primary '.*'/primary '#31a1a1'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
-
-	cd $PKG_PATH && echo "theme-argon has been fixed!"
-fi
-
+git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
@@ -68,20 +58,20 @@ git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 
 # 更改菜单名字
-echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
-echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+#echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+#echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
-echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-echo -e "msgstr \"域名分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+#echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+#echo -e "msgstr \"域名分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
 
-echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
-echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+#echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+#echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 
-echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
-echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
+#echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
+#echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+echo -e "msgstr \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
 #echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 #echo -e "msgstr \"路由隧道\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
@@ -89,14 +79,18 @@ echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/luc
 echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
+echo -e "\nmsgid \"AirConnect\"" >> package/airconnect/luci-app-airconnect/po/zh_Hans/airconnect.po
+echo -e "\msgstr \"AirConnect\"" >> package/airconnect/luci-app-airconnect/po/zh_Hans/airconnect.po
+
 # 更改菜单
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 
+sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
 # 软件包与配置
 # 主题
-#echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
+echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 # 终端
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
@@ -108,7 +102,7 @@ echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
