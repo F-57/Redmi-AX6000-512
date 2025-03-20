@@ -52,15 +52,10 @@ rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 # 安装luci-app-tailscale
-git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+#git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
-#修复TailScale配置文件冲突
-TS_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
-if [ -f "$TS_FILE" ]; then
-	sed -i '/\/files/d' $TS_FILE
-
-	cd $PKG_PATH && echo "tailscale has been fixed!"
-fi
+# 安装vnt组网
+git clone https://github.com/lmq8267/luci-app-vnt.git package/vnt
 
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
@@ -88,8 +83,8 @@ echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscont
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
-echo -e "msgstr \"路由隧道\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+#echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+#echo -e "msgstr \"路由隧道\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 
 #echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 #echo -e "msgstr \"WG 隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
@@ -114,5 +109,5 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-vnt=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
