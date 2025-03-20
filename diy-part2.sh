@@ -66,11 +66,11 @@ fi
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
 # 安装alist
-rm -rf feeds/luci/applications/luci-app-alist
-rm -rf feeds/packages/net/alist
-rm -rf package/feeds/luci/luci-app-alist
-rm -rf package/feeds/packages/alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
+#rm -rf feeds/luci/applications/luci-app-alist
+#rm -rf feeds/packages/net/alist
+#rm -rf package/feeds/luci/luci-app-alist
+#rm -rf package/feeds/packages/alist
+#git clone https://github.com/sbwml/luci-app-alist package/alist
 
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
@@ -89,7 +89,7 @@ echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
 echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
-echo -e "msgstr \"虚拟路由\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+echo -e "msgstr \"路由隧道\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 
 #echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 #echo -e "msgstr \"WG 隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
@@ -109,7 +109,7 @@ echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
