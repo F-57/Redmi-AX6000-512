@@ -21,10 +21,17 @@ sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
 # Theme
-git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
+#git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
+#修改argon主题字体和颜色
+if [ -d *"luci-theme-argon"* ]; then
+	cd ./luci-theme-argon/
 
-# luci-app-adguardhome
-#git clone https://github.com/xiaoxiao29/luci-app-adguardhome package/luci-app-adguardhome
+	sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find ./luci-theme-argon -type f -iname "*.css")
+	sed -i "s/primary '.*'/primary '#31a1a1'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
+
+	cd $PKG_PATH && echo "theme-argon has been fixed!"
+fi
+
 
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
@@ -36,30 +43,34 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-# 获取隔空播放luci-app-airconnect
+# 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
-# OpenClash
+# 安装 OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-# luci-app-tailscale
-#sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
-#git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+# 安装luci-app-tailscale
+git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
-# lucky
+#修复TailScale配置文件冲突
+TS_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
+if [ -f "$TS_FILE" ]; then
+	sed -i '/\/files/d' $TS_FILE
+
+	cd $PKG_PATH && echo "tailscale has been fixed!"
+fi
+
+# 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
-# 一键配置拨号
-# git clone https://github.com/caiweill/luci-app-netwizard package/luci-app-netwizard
-
-# 进阶设置
-# git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
-
-# 定时设置
-# git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
-
+# 安装alist
+rm -rf feeds/luci/applications/luci-app-alist
+rm -rf feeds/packages/net/alist
+rm -rf package/feeds/luci/luci-app-alist
+rm -rf package/feeds/packages/alist
+git clone https://github.com/sbwml/luci-app-alist package/alist
 
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
@@ -77,20 +88,20 @@ echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscont
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-echo -e "msgstr \"WG 隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+echo -e "msgstr \"虚拟路由\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+
+#echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+#echo -e "msgstr \"WG 隧道\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
 # 软件包与配置
-
 # 主题
-echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
+#echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 # 终端
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 # 释放内存
 #echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
-# 网络向导
-#echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
-# 上网时间控制 应用过滤 网络唤醒 定时设置 网络限速
+
 #echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
@@ -102,12 +113,12 @@ echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
 # 转播
 #echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 # 常用
-#echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+
+echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
 
-echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
