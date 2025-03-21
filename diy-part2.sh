@@ -58,20 +58,20 @@ git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 
 # 更改菜单名字
-#echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
-#echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
-#echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-#echo -e "msgstr \"域名分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
 
-#echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
-#echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 
 #echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 #echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
 
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-echo -e "msgstr \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
 #echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 #echo -e "msgstr \"路由隧道\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
@@ -79,8 +79,8 @@ echo -e "msgstr \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
-echo -e "\nmsgid \"AirConnect\"" >> package/airconnect/luci-app-airconnect/po/zh_Hans/airconnect.po
-echo -e "\msgstr \"AirConnect\"" >> package/airconnect/luci-app-airconnect/po/zh_Hans/airconnect.po
+echo -e "\nmsgid \"AList\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+echo -e "\msgstr \"多种存储\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
 
 # 更改菜单
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
