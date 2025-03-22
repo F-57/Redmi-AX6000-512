@@ -13,9 +13,16 @@
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改名称
 sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config_generate
-# 修改 WiFi
-sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+
+# 修改 WiFi 
+WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
+
+sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" $WIFI_FILE
+sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" $WIFI_FILE
+修改WIFI加密
+sed -i "s/encryption=.*/encryption='psk-mixed'/g" $WIFI_FILE
+#修改WIFI密码
+sed -i "/set wireless.default_\${dev}.encryption='psk-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='cw010203'" $WIFI_FILE
 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
