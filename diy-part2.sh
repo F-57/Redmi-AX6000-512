@@ -9,15 +9,18 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 
-# 修改ip
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
-# 修改名称
-sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config_generate
+#修改immortalwrt.lan关联IP
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.0.0.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
+
+CFG_FILE="./package/base-files/files/bin/config_generate"
+#修改默认IP地址
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.0.0.1/g" $CFG_FILE
+#修改默认主机名
+sed -i "s/hostname='.*'/hostname='AX6000'/g" $CFG_FILE
 
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
-# 修改 WiFi 
-sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" $WIFI_FILE
-sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" $WIFI_FILE
+#修改WIFI名称
+sed -i "s/ImmortalWrt/AX6000/g" $WIFI_FILE
 修改WIFI加密
 sed -i "s/encryption=.*/encryption='psk-mixed'/g" $WIFI_FILE
 #修改WIFI密码
