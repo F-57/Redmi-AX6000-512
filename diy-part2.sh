@@ -14,9 +14,8 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 # 修改名称
 sed -i "s/hostname='.*'/hostname='AX6000'/g" package/base-files/files/bin/config_generate
 
-# 修改 WiFi 
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
-
+# 修改 WiFi 
 sed -i "s/ImmortalWrt-2.4G/Ax6000-2.4G/g" $WIFI_FILE
 sed -i "s/ImmortalWrt-5G/Ax6000-5G/g" $WIFI_FILE
 修改WIFI加密
@@ -48,21 +47,11 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-# 安装luci-app-tailscale
-#git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
-
 # 安装vnt组网
 git clone https://github.com/lmq8267/luci-app-vnt.git package/vnt
 
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
-
-# 安装alist
-#rm -rf feeds/luci/applications/luci-app-alist
-#rm -rf feeds/packages/net/alist
-#rm -rf package/feeds/luci/luci-app-alist
-#rm -rf package/feeds/packages/alist
-#git clone https://github.com/sbwml/luci-app-alist package/alist
 
 # 进阶设置
 git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
