@@ -64,6 +64,9 @@ git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 #rm -rf package/feeds/packages/alist
 #git clone https://github.com/sbwml/luci-app-alist package/alist
 
+# 进阶设置
+git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
+
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
@@ -96,11 +99,8 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
 # 软件包与配置
-# 主题
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
-# 终端
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-# 释放内存
 #echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
@@ -115,5 +115,5 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-vnt=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
