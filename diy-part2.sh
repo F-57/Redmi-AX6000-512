@@ -101,15 +101,6 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-ramfree=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-accesscontrol=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-wol=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-autotimeset=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-eqos-mtk=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-msd_lite=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
