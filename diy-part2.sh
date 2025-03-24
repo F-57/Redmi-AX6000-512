@@ -51,6 +51,7 @@ rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 # OpenClash Mihomo内核
+mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
 curl -sL -m 30 --retry 2 https://github.com/MetaCubeX/mihomo/releases/download/v1.18.8/mihomo-linux-arm64-v1.18.8.gz -o /tmp/clash-meta.gz
 tar zxvf /tmp/clash-meta.gz -C /tmp >/dev/null 2>&1
 chmod +x /tmp/clash-meta >/dev/null 2>&1
