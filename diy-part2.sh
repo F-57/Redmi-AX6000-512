@@ -56,8 +56,6 @@ tar zxvf /tmp/clash-meta.gz -C /tmp >/dev/null 2>&1
 chmod +x /tmp/clash-meta >/dev/null 2>&1
 mv /tmp/clash-meta feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash_meta >/dev/null 2>&1
 
-
-
 # OpenClash GeoIP 数据库
 curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o /tmp/GeoIP.dat
 mv /tmp/GeoIP.dat feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat >/dev/null 2>&1
