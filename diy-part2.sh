@@ -51,11 +51,20 @@ rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 # OpenClash Mihomo内核
-curl -sL -m 30 --retry 2 https://github.com/MetaCubeX/mihomo/releases/download/v1.18.8/mihomo-linux-arm64-v1.18.8.gz -o /tmp/clash-meta.gz
-gunzip -f /tmp/clash-meta.gz -C /tmp >/dev/null 2>&1
-chmod +x /tmp/clash-meta >/dev/null 2>&1
-mkdir -p feeds/luci/applications/luci-app-openclash/root/etc/openclash/core
-mv /tmp/clash-meta feeds/luci/applications/luci-app-openclash/root/etc/openclash/core/clash_meta >/dev/null 2>&1
+CORE_DIR="feeds/luci/applications/luci-app-openclash/root/etc/openclash/core"
+CORE_FILE="$CORE_DIR/clash_meta"
+TEMP_FILE="/tmp/clash-meta.gz"
+UNZIPPED_FILE="/tmp/clash-meta"
+
+mkdir -p "$CORE_DIR"
+curl -sL -m 30 --retry 2 \
+    "https://github.com/MetaCubeX/mihomo/releases/download/v1.18.8/mihomo-linux-arm64-v1.18.8.gz" \
+    -o "$TEMP_FILE"
+gunzip -f "$TEMP_FILE"
+chmod +x "$UNZIPPED_FILE"
+mv "$UNZIPPED_FILE" "$CORE_FILE"
+chmod +x "$CORE_FILE"
+echo "Mihomo 内核已成功下载并配置到 $CORE_FILE"
 
 # OpenClash GeoIP 数据库
 curl -sL -m 30 --retry 2 https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o /tmp/GeoIP.dat
