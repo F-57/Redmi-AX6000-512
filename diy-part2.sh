@@ -59,6 +59,13 @@ git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 # 进阶设置
 git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 
+# 安装tailscale组网
+sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
+git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
+
+#修复Coremark编译失败
+sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
+
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
