@@ -21,7 +21,7 @@ sed -i "s/hostname='.*'/hostname='AX6000'/g" $CFG_FILE
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
 #修改WIFI名称
 sed -i "s/ImmortalWrt/AX6000/g" $WIFI_FILE
-修改WIFI加密
+#修改WIFI加密
 sed -i "s/encryption=.*/encryption='psk-mixed'/g" $WIFI_FILE
 #修改WIFI密码
 sed -i "/set wireless.default_\${dev}.encryption='psk-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='cw010203'" $WIFI_FILE
