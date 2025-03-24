@@ -23,9 +23,9 @@ WIFI_PASS="cw010203"
 #修改WIFI名称
 sed -i "s/ImmortalWrt/AX6000/g" $WIFI_FILE
 #修改WIFI加密
-sed -i "s/encryption=.*/encryption='psk-mixed'/g" $WIFI_FILE
+sed -i "s/encryption=.*/encryption='sae-mixed'/g" $WIFI_FILE
 #修改WIFI密码
-sed -i "/set wireless.default_\${dev}.encryption='psk-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='$WIFI_PASS'" $WIFI_FILE
+sed -i "/set wireless.default_\${dev}.encryption='sae-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='$WIFI_PASS'" $WIFI_FILE
 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
