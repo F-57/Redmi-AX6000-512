@@ -171,4 +171,4 @@ echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
+echo "CONFIG_PACKAGE_https-dns-proxy=y" >> .config
