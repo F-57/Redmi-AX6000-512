@@ -160,6 +160,10 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
+# 修改argon主题字体和颜色
+sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find package/feeds/luci/luci-theme-argon -type f -iname "*.css")
+sed -i "s/primary '.*'/primary '#B0C4DE'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" package/feeds/luci/luci-app-argon-config/root/etc/config/argon
+
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
