@@ -102,28 +102,28 @@ chmod +x "$CORE_FILE"
 echo "Mihomo 内核已成功下载并配置到 $CORE_FILE"
 
 # 下载 OpenClash GeoIP 数据库
-#GEOIP_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat"
-#curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -o "/tmp/GeoIP.dat"
+GEOIP_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat"
+curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -o "/tmp/GeoIP.dat"
 
-#if [ -s "/tmp/GeoIP.dat" ]; then
-#    mv -f "/tmp/GeoIP.dat" "$GEOIP_FILE"
-#    echo "GeoIP 数据库更新成功！"
-#else
-#    echo "GeoIP 数据库下载失败！"
-#fi
+if [ -s "/tmp/GeoIP.dat" ]; then
+    mv -f "/tmp/GeoIP.dat" "$GEOIP_FILE"
+    echo "GeoIP 数据库更新成功！"
+else
+    echo "GeoIP 数据库下载失败！"
+fi
 
 # 下载 OpenClash GeoSite 数据库
-#GEOSITE_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat"
-#curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -o "/tmp/GeoSite.dat"
+GEOSITE_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat"
+curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -o "/tmp/GeoSite.dat"
 
-#if [ -s "/tmp/GeoSite.dat" ]; then
-#    mv -f "/tmp/GeoSite.dat" "$GEOSITE_FILE"
-#    echo "GeoSite 数据库更新成功！"
-#else
-#    echo "GeoSite 数据库下载失败！"
-#fi
+if [ -s "/tmp/GeoSite.dat" ]; then
+    mv -f "/tmp/GeoSite.dat" "$GEOSITE_FILE"
+    echo "GeoSite 数据库更新成功！"
+else
+    echo "GeoSite 数据库下载失败！"
+fi
 
-#修复Coremark编译失败
+# 修复Coremark编译失败
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
