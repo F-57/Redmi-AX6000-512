@@ -60,6 +60,9 @@ git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 # 进阶设置
 git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 
+# DNS助手
+git clone https://github.com/kongfl888/openwrt-my-dnshelper package/openwrt-my-dnshelper
+
 # 安装tailscale组网
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
@@ -167,5 +170,5 @@ echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-https-dns-proxy=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-tailscale=y" >> .config
