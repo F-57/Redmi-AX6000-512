@@ -176,3 +176,4 @@ echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
 echo "CONFIG_PACKAGE_https-dns-proxy=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
