@@ -165,7 +165,7 @@ sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }
 sed -i "s/primary '.*'/primary '#B0C4DE'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" package/luci-app-advancedplus/root/etc/config/argon
 
 # 覆盖设置
-mv -f "$GITHUB_WORKSPACE/Config/openclash" "feeds/luci/applications/luci-app-openclash/root/etc/config/openclash"
+mv -f "$GITHUB_WORKSPACE/config/openclash" "feeds/luci/applications/luci-app-openclash/root/etc/config/openclash"
 
 # 软件包与配置
 # echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
