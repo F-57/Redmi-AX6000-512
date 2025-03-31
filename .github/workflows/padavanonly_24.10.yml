@@ -11,8 +11,8 @@
 name: padavanonly_24.10
 
 on:
-  schedule:
-    - cron: 2 */4 * * *
+#  schedule:
+#    - cron: 2 */4 * * *
   push:
     tags:
     - 'v*'
