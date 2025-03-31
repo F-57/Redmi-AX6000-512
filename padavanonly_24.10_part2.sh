@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# IP地址
-WRT_IP=10.0.0.1
+# 主机
+WRT_NAME="AX6000"
+WRT_IP="10.0.0.1"
+# Wi-Fi
+WRT_SSID="Ax6000"
+WRT_WORD="cw010203"
 
 #修改默认主题
-sed -i "s/luci-theme-bootstrap/luci-theme-$WRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
+sed -i "s/luci-theme-bootstrap/luci-theme-argon/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 #修改immortalwrt.lan关联IP
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 #添加编译日期标识
