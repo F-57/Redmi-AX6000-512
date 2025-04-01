@@ -30,3 +30,5 @@ sed -i "s/encryption=.*/encryption='sae-mixed'/g" $WIFI_FILE
 
 sed -i "/set wireless.default_\${dev}.encryption='sae-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='$WIFI_PASS'" $WIFI_FILE
 
+#安装误删argon2
+./scripts/feeds install node-argon2
