@@ -112,12 +112,11 @@ jobs:
     - name: 更新安装feeds
       run: |
         cd ./openwrt/
-
         ./scripts/feeds update -a
         ./scripts/feeds install -a      
 
     - name: 加载Packages目录下DIY_P1_SH
-        run: |
+      run: |
         cd ./openwrt/package/
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
