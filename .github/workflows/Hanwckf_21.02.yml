@@ -139,7 +139,7 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-            redmi-ax6000 固件精简版, 闭源驱动
+            自用红米AX6000改512版, hanwckf大佬闭源驱动版固件
             基于openwrt-21.02, kernel 5.4, 编译时间: ${{ env.FILE_DATE }}
             
             Default IP: 10.0.0.1
