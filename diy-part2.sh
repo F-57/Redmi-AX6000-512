@@ -32,6 +32,9 @@ sed -i "/set wireless.default_\${dev}.encryption='sae-mixed'/a \\\t\t\t\t\t\set 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
 
+# 修改upnp服务地址
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" feeds/luci/applications/luci-app-upnp/htdocs/luci-static/resources/view/upnp/upnp.js
+
 # 512布局
 sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts
 
@@ -162,13 +165,6 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
-
-# 修改argon主题字体和颜色
-#sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find package/feeds/luci/luci-theme-argon -type f -iname "*.css")
-#sed -i "s/primary '.*'/primary '#B0C4DE'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" package/luci-app-advancedplus/root/etc/config/argon
-
-# 修改upnp服务地址
-sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" feeds/luci/applications/luci-app-upnp/htdocs/luci-static/resources/view/upnp/upnp.js
 
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
