@@ -66,6 +66,9 @@ git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-adv
 # DNS助手
 git clone https://github.com/kongfl888/openwrt-my-dnshelper package/openwrt-my-dnshelper
 
+# 应用过滤
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter 
+
 # 安装tailscale组网
 sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
 git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
@@ -179,3 +182,4 @@ echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
 echo "CONFIG_PACKAGE_https-dns-proxy=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-oaf=y" >> .config
