@@ -84,7 +84,7 @@ rmdir $WORKINGDIR/openwrt-smartdns-master
 rm $WORKINGDIR/master.zip
 
 # 下载 luci-app-smartdns
-LUCIBRANCH="master"
+LUCIBRANCH="lede"
 WORKINGDIR="feeds/luci/applications/luci-app-smartdns"
 mkdir -p $WORKINGDIR
 rm -rf $WORKINGDIR/*
