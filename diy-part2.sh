@@ -192,8 +192,8 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 
 # 软件包与配置
 ## Rust 支持
-echo "CONFIG_BUILD_LANGUAGES=y" >> .config
-echo "CONFIG_LANG_rust=y" >> .config
+#echo "CONFIG_BUILD_LANGUAGES=y" >> .config
+#echo "CONFIG_LANG_rust=y" >> .config
 
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
