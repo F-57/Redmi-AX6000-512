@@ -191,6 +191,10 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
 # 软件包与配置
+## Rust 支持
+echo "CONFIG_BUILD_LANGUAGES=y" >> .config
+echo "CONFIG_LANG_rust=y" >> .config
+
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
