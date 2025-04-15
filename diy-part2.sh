@@ -74,9 +74,9 @@ sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/package
 git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 
 # 安装SmartDns
-git clone --depth=1 https://github.com/pymumu/luci-app-smartdns.git tmp-smartdns
 rm -rf feeds/luci/applications/luci-app-smartdns
-mv tmp-smartdns feeds/luci/applications/luci-app-smartdns
+rm -rf package/feeds/luci/luci-app-smartdns
+git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # 安装 OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
@@ -168,8 +168,8 @@ echo -e "msgstr \"聚合网盘\"" >> package/feeds/luci/luci-app-alist/po/zh_Han
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "\nmsgid \"SmartDNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
