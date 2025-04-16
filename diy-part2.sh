@@ -69,15 +69,6 @@ git clone https://github.com/kongfl888/openwrt-my-dnshelper package/openwrt-my-d
 # 应用过滤
 git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter 
 
-# 安装tailscale组网
-sed -i '/\/etc\/init\.d\/tailscale/d;/\/etc\/config\/tailscale/d;' feeds/packages/net/tailscale/Makefile
-git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
-
-# 安装SmartDns
-rm -rf feeds/luci/applications/luci-app-smartdns
-rm -rf package/feeds/luci/luci-app-smartdns
-git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
-
 # 安装 OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -168,8 +159,8 @@ echo -e "msgstr \"聚合网盘\"" >> package/feeds/luci/luci-app-alist/po/zh_Han
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
@@ -178,15 +169,11 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
 # 软件包与配置
-## Rust 支持
-#echo "CONFIG_BUILD_LANGUAGES=y" >> .config
-#echo "CONFIG_LANG_rust=y" >> .config
-
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
@@ -194,5 +181,4 @@ echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
 #echo "CONFIG_PACKAGE_https-dns-proxy=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-oaf=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-oaf=y" >> .config
