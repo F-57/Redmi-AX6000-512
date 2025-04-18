@@ -163,6 +163,7 @@ echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
 # 软件包与配置
+echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
