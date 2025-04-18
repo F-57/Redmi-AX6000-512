@@ -59,9 +59,9 @@ git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 #git clone https://github.com/F-57/luci-app-alist package/alist
 
 # 安装 luci-app-smartdns
-rm -rf feeds/luci/applications/luci-app-smartdns
-rm -rf package/feeds/luci/luci-app-smartdns
-git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+#rm -rf feeds/luci/applications/luci-app-smartdns
+#rm -rf package/feeds/luci/luci-app-smartdns
+#git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
