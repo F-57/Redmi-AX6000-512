@@ -51,6 +51,13 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
+# 安装 alist
+rm -rf feeds/packages/net/alist
+rm -rf package/feeds/packages/alist
+rm -rf feeds/luci/applications/luci-app-alist
+rm -rf package/feeds/luci/luci-app-alist
+git clone https://github.com/F-57/luci-app-alist package/alist
+
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
@@ -153,9 +160,6 @@ echo -e "msgstr \"虚拟组网\"" >> package/luci-app-tailscale/po/zh_Hans/tails
 echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
-echo -e "\nmsgid \"AList\"" >> package/feeds/luci/luci-app-alist/po/zh_Hans/alist.po
-echo -e "msgstr \"聚合网盘\"" >> package/feeds/luci/luci-app-alist/po/zh_Hans/alist.po
-
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
@@ -167,7 +171,6 @@ sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
 
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
-
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
