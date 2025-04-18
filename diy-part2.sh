@@ -66,9 +66,6 @@ git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
-# 安装vnt组网
-git clone https://github.com/lmq8267/luci-app-vnt.git package/vnt
-
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
