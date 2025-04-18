@@ -52,11 +52,11 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # 安装 alist
-rm -rf feeds/packages/net/alist
-rm -rf package/feeds/packages/alist
-rm -rf feeds/luci/applications/luci-app-alist
-rm -rf package/feeds/luci/luci-app-alist
-git clone https://github.com/F-57/luci-app-alist package/alist
+#rm -rf feeds/packages/net/alist
+#rm -rf package/feeds/packages/alist
+#rm -rf feeds/luci/applications/luci-app-alist
+#rm -rf package/feeds/luci/luci-app-alist
+#git clone https://github.com/F-57/luci-app-alist package/alist
 
 # 安装 luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-smartdns
@@ -143,6 +143,9 @@ echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh
 
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+
+echo -e "\nmsgid \"AList\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+echo -e "msgstr \"聚合网盘\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
 
 #echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 #echo -e "msgstr \"虚拟组网\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
