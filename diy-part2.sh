@@ -72,15 +72,6 @@ git clone https://github.com/lmq8267/luci-app-vnt.git package/vnt
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
-# 进阶设置
-git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
-
-# DNS助手
-git clone https://github.com/kongfl888/openwrt-my-dnshelper package/openwrt-my-dnshelper
-
-# 应用过滤
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter 
-
 # 安装 OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -153,14 +144,11 @@ echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/m
 echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 
-#echo -e "\nmsgid \"Internet Access Schedule Control\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
-#echo -e "msgstr \"上网时间\"" >> feeds/luci/applications/luci-app-accesscontrol/po/zh_Hans/mia.po
-
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
-echo -e "msgstr \"虚拟组网\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+#echo -e "\nmsgid \"Tailscale\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
+#echo -e "msgstr \"虚拟组网\"" >> package/luci-app-tailscale/po/zh_Hans/tailscale.po
 
 echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
@@ -168,17 +156,12 @@ echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-#echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-#echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-
 echo -e "\nmsgid \"SmartDNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
 echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
-sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
-sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/view/vnt/*.htm
-
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
+
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
@@ -187,10 +170,6 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-my-dnshelper=y" >> .config
-#echo "CONFIG_PACKAGE_https-dns-proxy=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-oaf=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
