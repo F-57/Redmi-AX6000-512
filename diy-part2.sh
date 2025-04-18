@@ -58,6 +58,11 @@ rm -rf feeds/luci/applications/luci-app-alist
 rm -rf package/feeds/luci/luci-app-alist
 git clone https://github.com/F-57/luci-app-alist package/alist
 
+# 安装 luci-app-smartdns
+rm -rf feeds/luci/applications/luci-app-smartdns
+rm -rf package/feeds/luci/luci-app-smartdns
+git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
+
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
@@ -163,8 +168,11 @@ echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+
+echo -e "\nmsgid \"SmartDNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/vpn/services/g' package/vnt/luci-app-vnt/luasrc/controller/*.lua
