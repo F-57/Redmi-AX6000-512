@@ -156,8 +156,8 @@ echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> package/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
