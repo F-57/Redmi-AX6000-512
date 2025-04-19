@@ -67,9 +67,9 @@ jobs:
       if: env.WRT_TEST != 'true'
       uses: actions/cache@main
       with:
-       key: openwrt-21.02-${{ hashFiles('openwrt/.config') }}
-       restore-keys: ${{env.WRT_CONFIG}}-${{env.WRT_VER}}
-       path: |
+        key: openwrt-21.02-ax6000-${{ hashFiles('openwrt/.config') }}
+        restore-keys: openwrt-21.02-ax6000-
+        path: |
           ./workdir/.ccache
           ./workdir/staging_dir/host*
           ./workdir/staging_dir/tool*
@@ -151,9 +151,9 @@ jobs:
       with:
         key: openwrt-21.02-${{ hashFiles('openwrt/.config') }}
         path: |
-          ./workdir/.ccache
-          ./workdir/staging_dir/host*
-          ./workdir/staging_dir/tool*
+         /workdir/openwrt/.ccache
+         /workdir/openwrt/staging_dir/host
+         /workdir/openwrt/staging_dir/toolchain
         
     - name: 查看磁盘使用情况
       if: (!cancelled())
