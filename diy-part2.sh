@@ -51,18 +51,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-# 安装 alist
-#rm -rf feeds/packages/net/alist
-#rm -rf package/feeds/packages/alist
-#rm -rf feeds/luci/applications/luci-app-alist
-#rm -rf package/feeds/luci/luci-app-alist
-#git clone https://github.com/F-57/luci-app-alist package/alist
-
-# 安装 luci-app-smartdns
-#rm -rf feeds/luci/applications/luci-app-smartdns
-#rm -rf package/feeds/luci/luci-app-smartdns
-#git clone https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
-
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
