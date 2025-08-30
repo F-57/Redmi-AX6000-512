@@ -62,60 +62,60 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-CORE_DIR="feeds/luci/applications/luci-app-openclash/root/etc/openclash/core"
-CORE_FILE="$CORE_DIR/clash_meta"
-TEMP_FILE="/tmp/clash-meta.gz"
-UNZIPPED_FILE="/tmp/clash-meta"
+# CORE_DIR="feeds/luci/applications/luci-app-openclash/root/etc/openclash/core"
+# CORE_FILE="$CORE_DIR/clash_meta"
+# TEMP_FILE="/tmp/clash-meta.gz"
+# UNZIPPED_FILE="/tmp/clash-meta"
 
-mkdir -p "$CORE_DIR"
+# mkdir -p "$CORE_DIR"
 
 # 获取最新 Mihomo 版本
-LATEST_VERSION=$(curl -sL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
-DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/$LATEST_VERSION/mihomo-linux-arm64-$LATEST_VERSION.gz"
+# LATEST_VERSION=$(curl -sL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep '"tag_name"' | cut -d '"' -f 4)
+# DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/$LATEST_VERSION/mihomo-linux-arm64-$LATEST_VERSION.gz"
 
 # 下载 Mihomo 内核
-echo "正在下载 Mihomo 内核：$LATEST_VERSION"
-curl -sL --retry 3 --retry-delay 5 -m 30 "$DOWNLOAD_URL" -o "$TEMP_FILE"
+# echo "正在下载 Mihomo 内核：$LATEST_VERSION"
+# curl -sL --retry 3 --retry-delay 5 -m 30 "$DOWNLOAD_URL" -o "$TEMP_FILE"
 
-if [ ! -s "$TEMP_FILE" ]; then
-    echo "Mihomo 内核下载失败！"
-    exit 1
-fi
-
-gunzip -f "$TEMP_FILE"
-
-if [ ! -f "$UNZIPPED_FILE" ]; then
-    echo "解压失败！"
-    exit 1
-fi
-
-chmod +x "$UNZIPPED_FILE"
-mv "$UNZIPPED_FILE" "$CORE_FILE"
-chmod +x "$CORE_FILE"
-echo "Mihomo 内核已成功下载并配置到 $CORE_FILE"
+# if [ ! -s "$TEMP_FILE" ]; then
+#     echo "Mihomo 内核下载失败！"
+#     exit 1
+# fi
+# 
+# gunzip -f "$TEMP_FILE"
+# 
+# if [ ! -f "$UNZIPPED_FILE" ]; then
+#     echo "解压失败！"
+#     exit 1
+# fi
+# 
+# chmod +x "$UNZIPPED_FILE"
+# mv "$UNZIPPED_FILE" "$CORE_FILE"
+# chmod +x "$CORE_FILE"
+# echo "Mihomo 内核已成功下载并配置到 $CORE_FILE"
 
 # 下载 OpenClash GeoIP 数据库
-GEOIP_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat"
-curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -o "/tmp/GeoIP.dat"
+# GEOIP_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoIP.dat"
+# curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -o "/tmp/GeoIP.dat"
 
-if [ -s "/tmp/GeoIP.dat" ]; then
-    mv -f "/tmp/GeoIP.dat" "$GEOIP_FILE"
-    echo "GeoIP 数据库更新成功！"
-else
-    echo "GeoIP 数据库下载失败！"
-fi
+# if [ -s "/tmp/GeoIP.dat" ]; then
+#     mv -f "/tmp/GeoIP.dat" "$GEOIP_FILE"
+#     echo "GeoIP 数据库更新成功！"
+# else
+#     echo "GeoIP 数据库下载失败！"
+# fi
 
 # 下载 OpenClash GeoSite 数据库
-GEOSITE_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat"
-curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -o "/tmp/GeoSite.dat"
+# GEOSITE_FILE="feeds/luci/applications/luci-app-openclash/root/etc/openclash/GeoSite.dat"
+# curl -sL --retry 3 --retry-delay 5 -m 30 "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -o "/tmp/GeoSite.dat"
 
-if [ -s "/tmp/GeoSite.dat" ]; then
-    mv -f "/tmp/GeoSite.dat" "$GEOSITE_FILE"
-    echo "GeoSite 数据库更新成功！"
-else
-    echo "GeoSite 数据库下载失败！"
-fi
-
+# if [ -s "/tmp/GeoSite.dat" ]; then
+#     mv -f "/tmp/GeoSite.dat" "$GEOSITE_FILE"
+#     echo "GeoSite 数据库更新成功！"
+# else
+#     echo "GeoSite 数据库下载失败！"
+# fi
+# 
 # 修复Coremark编译失败
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
@@ -135,14 +135,14 @@ echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/luc
 echo -e "\nmsgid \"AList\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
 echo -e "msgstr \"聚合网盘\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
 
-echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+#echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+#echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
@@ -156,7 +156,7 @@ echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
