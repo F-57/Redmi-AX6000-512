@@ -51,6 +51,9 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
+# 安装 luci-app-openlist2 
+git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
+
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
@@ -132,8 +135,11 @@ echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh
 echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-echo -e "\nmsgid \"AList\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
-echo -e "msgstr \"聚合网盘\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+#echo -e "\nmsgid \"AList\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+#echo -e "msgstr \"聚合网盘\"" >> feeds/luci/applications/luci-app-alist/po/zh_Hans/alist.po
+
+echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
+echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
 
 #echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 #echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
@@ -151,7 +157,8 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-alist=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
