@@ -40,6 +40,8 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
+git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
 
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
@@ -153,6 +155,8 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 # 软件包与配置
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
+echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-kucat-config=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
