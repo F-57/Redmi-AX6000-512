@@ -156,14 +156,13 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-kucat-config=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
