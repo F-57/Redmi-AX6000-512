@@ -59,6 +59,9 @@ git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
 # 安装隔空播放luci-app-airconnect
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
+# 安装通知luci-app-wechatpush
+git clone https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
