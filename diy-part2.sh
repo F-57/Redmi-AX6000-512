@@ -36,12 +36,12 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" feeds/luci/applications/luci-app-upnp/htdocs/luci-static/resources/view/upnp/upnp.js
 
 # 512布局
-sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts
+#sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts
 
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
-git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
+#git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+#git clone https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
@@ -159,8 +159,8 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 # 软件包与配置
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
-echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
+#echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-advancedplus=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
@@ -169,5 +169,5 @@ echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-wechatpush=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-smartdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
