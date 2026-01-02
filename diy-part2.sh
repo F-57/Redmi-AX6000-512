@@ -69,29 +69,29 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
-echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
-echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+#echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+#echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
-echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+#echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+#echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
 
-echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
-echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+#echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
+#echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 
-echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+#echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+#echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
-echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
+#echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
+#echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
 
-echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+#echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
+#echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 
-echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
-echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
+#echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
+#echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
-echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
+#echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
 
 # 更改菜单
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
@@ -100,10 +100,10 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
