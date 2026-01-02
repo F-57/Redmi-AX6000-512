@@ -60,6 +60,9 @@ git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 # 安装lucky
 git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
 
+# adguardhome
+git clone https://github.com/F-57/luci-app-adguardhome1 package/luci-app-adguardhome
+
 # 安装 OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
@@ -103,6 +106,7 @@ echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
