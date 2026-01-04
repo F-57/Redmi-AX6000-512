@@ -41,6 +41,8 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
+# 安装 luci-app-cloudflared
+git clone https://github.com/immortalwrt/luci/tree/master/applications/luci-app-cloudflared package/luci-app-cloudflared
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
@@ -109,5 +111,5 @@ echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-wireguard=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-cloudflared=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
