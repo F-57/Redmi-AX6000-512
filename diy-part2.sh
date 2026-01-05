@@ -41,8 +41,6 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
-# 安装 luci-app-cloudflared
-git clone https://github.com/immortalwrt/luci/tree/master/applications/luci-app-cloudflared package/luci-app-cloudflared
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
@@ -69,6 +67,9 @@ git clone https://github.com/F-57/luci-app-adguardhome1 package/luci-app-adguard
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
+
+# 安装 luci-app-cloudflared
+git clone https://github.com/F-57/luci-app-cloudflared package/luci-app-cloudflared
 
 # 修复Coremark编译失败
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
