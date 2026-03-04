@@ -106,7 +106,7 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
