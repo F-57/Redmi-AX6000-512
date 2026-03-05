@@ -68,9 +68,6 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-# 安装 luci-app-cloudflared
-git clone https://github.com/F-57/luci-app-cloudflared package/luci-app-cloudflared
-
 # 修复Coremark编译失败
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
@@ -108,9 +105,9 @@ echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-cloudflared=y" >> .config
+#echo "CONFIG_PACKAGE_luci-app-cloudflared=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
