@@ -58,8 +58,8 @@ git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
 git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
 
 # 安装lucky
-git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
-
+#git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
+git clone https://github.com/gdy666/luci-app-lucky.git package/lucky
 # adguardhome
 git clone https://github.com/F-57/luci-app-adguardhome1 package/luci-app-adguardhome
 
@@ -81,11 +81,11 @@ echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/
 echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 
-#echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-#echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
+echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
 
-#echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
-#echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
+echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
+echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
 
 #echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
 #echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
@@ -107,7 +107,7 @@ echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-cloudflared=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
