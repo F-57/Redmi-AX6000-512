@@ -41,6 +41,9 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
+# 向导
+git clone https://github.com/sirpdboy/luci-app-netwizard -b lua package/luci-app-netwizard
+
 # 安装 mosdns
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/net/mosdns
@@ -72,6 +75,9 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
+echo -e "\nmsgid \"Netwizard\"" >> package/luci-app-netwizard/luci-app-netwizard/po/zh_Hans/netwizard.po
+echo -e "msgstr \"向导\"" >> package/luci-app-netwizard/luci-app-netwizard/po/zh_Hans/netwizard.po
+
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
