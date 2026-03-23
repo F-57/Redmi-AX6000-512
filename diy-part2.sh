@@ -117,3 +117,4 @@ echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
