@@ -41,9 +41,6 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 
-# 向导
-git clone https://github.com/sirpdboy/luci-app-netwizard -b lua package/luci-app-netwizard
-
 # adguardhome
 git clone https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
 
@@ -75,9 +72,6 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
-echo -e "\nmsgid \"Netwizard\"" >> package/luci-app-netwizard/luci-app-netwizard/po/zh_Hans/netwizard.po
-echo -e "msgstr \"向导\"" >> package/luci-app-netwizard/luci-app-netwizard/po/zh_Hans/netwizard.po
-
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
@@ -93,9 +87,6 @@ echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/luc
 echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
 echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
 
-#echo -e "\nmsgid \"WireGuard\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-#echo -e "msgstr \"异地组网\"" >> feeds/luci/applications/luci-app-wireguard/po/zh_Hans/wireguard.po
-
 echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
 
@@ -109,7 +100,7 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 echo "CONFIG_CCACHE=y" >> .config
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-dockerman=y" >> .config
+
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 #echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
@@ -117,4 +108,3 @@ echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-netwizard=y" >> .config
