@@ -54,6 +54,10 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
+# 安装应用过滤
+rm -rf feeds/luci/applications/luci-app-appfilter
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+
 # 安装 luci-app-openlist2 
 git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
 
@@ -109,4 +113,4 @@ echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-appfilter=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-oaf=y" >> .config
