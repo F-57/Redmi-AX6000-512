@@ -73,7 +73,7 @@ rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 # 修复Coremark编译失败
-sed -i 's/mkdir/mkdir -p/g' feeds/packages/utils/coremark/Makefile
+sed -i 's/\tmkdir/\tmkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
