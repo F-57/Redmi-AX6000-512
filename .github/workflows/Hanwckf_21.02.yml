@@ -1,13 +1,4 @@
 #
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-#
-###############改名字##############
 name: Redmi-AX6000-hanwckf
 
 on:
@@ -53,6 +44,17 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+
+    - name: 缓存加速
+      uses: actions/cache@v4
+      with:
+        path: |
+          openwrt/dl
+          openwrt/staging_dir/host
+          openwrt/staging_dir/toolchain
+        key: ${{ runner.os }}-openwrt-${{ env.REPO_BRANCH }}-${{ hashFiles('**/feeds.conf.default', '**/Makefile') }}
+        restore-keys: |
+          ${{ runner.os }}-openwrt-${{ env.REPO_BRANCH }}-
         
     - name: 下载固件源码
       working-directory: /workdir
@@ -60,7 +62,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-         
+          
     - name: 加载feeds.conf.default & DIY_P1_SH
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -142,12 +144,14 @@ jobs:
             redmi-ax6000 固件精简版, 闭源驱动
             基于openwrt-21.02, kernel 5.4, 编译时间: ${{ env.FILE_DATE }}
             
-            Default IP: 192.168.6.1
+            Default IP: 10.0.0.1
             Default username: root
             Default password: password
+            Default SSID: Ax6000
+            Default Key: cw010203
             
             插件列表： 
-              ├ OpenClash + 全部内核 + GeoIP 数据库 + GeoSite 数据库
+              ├ OpenClash + Mosdns + Openlist + lucky + Adguardhome
         
     - name: 删除工作流程运行
       uses: Mattraks/delete-workflow-runs@main
