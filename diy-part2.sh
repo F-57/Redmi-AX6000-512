@@ -48,7 +48,9 @@ git clone https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardh
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+rm -rf feeds/packages/net/mosdns
+rm -rf package/feeds/packages/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b openwrt-21.02 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 # 安装 luci-app-openlist2 
