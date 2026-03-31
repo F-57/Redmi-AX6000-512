@@ -54,10 +54,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/l
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-# 安装应用过滤
-rm -rf feeds/luci/applications/luci-app-appfilter
-git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-
 # 安装 luci-app-openlist2 
 git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
 
@@ -72,15 +68,13 @@ git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
-# 修复Coremark编译失败
-sed -i 's/\tmkdir/\tmkdir -p/g' feeds/packages/utils/coremark/Makefile
 
 # 更改菜单名字
 echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
 
-#echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-#echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
+echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
 
 echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
 echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
@@ -109,10 +103,12 @@ echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
 
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
-#echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
 
 
+# 修复Coremark编译失败
+sed -i 's/\tmkdir/\tmkdir -p/g' feeds/packages/utils/coremark/Makefile
