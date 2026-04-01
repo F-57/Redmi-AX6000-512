@@ -41,12 +41,21 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/powershell /usr/share/swift
+        # 1. 强力移除 Snap 干扰
+        sudo systemctl disable --now snapd.service snapd.socket
+        sudo apt-get purge -y snapd
+        
+        # 2. 深度清理无用软件（针对 GitHub 环境优化）
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/powershell /usr/share/swift /usr/local/bin/aliyun /usr/local/bin/azcopy
+        
+        # 3. 更新系统并安装 OpenWrt 必备库
         sudo -E apt-get -qq update
         sudo -E apt-get -qq install build-essential clang flex bison g++ gawk gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev dos2unix libfuse-dev
-        sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
-        sudo -E apt-get -qq autoremove --purge
-        sudo -E apt-get -qq clean
+        
+        # 4. 调用官方脚本补充剩下的依赖
+        sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
+        
+        # 5. 设置时区并准备挂载大空间分区
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /mnt/workdir
         sudo chown $USER:$GROUPS /mnt/workdir
