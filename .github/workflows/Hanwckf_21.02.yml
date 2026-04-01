@@ -31,7 +31,6 @@ env:
 
 jobs:
   build:
-  # 更改为 22.04 以获得最佳兼容性
     runs-on: ubuntu-22.04
 
     steps:
