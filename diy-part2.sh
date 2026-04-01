@@ -45,9 +45,9 @@ git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
 git clone https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
 
 # 安装 mosdns
-# 需要 Go 语言 1.24.x 或更高版本
+# 需要 Go 语言 1.26.x 或更高版本
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
 git clone https://github.com/sbwml/luci-app-mosdns -b openwrt-21.02 package/mosdns
