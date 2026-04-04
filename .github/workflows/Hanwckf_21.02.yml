@@ -61,17 +61,6 @@ jobs:
         sudo chown $USER:$GROUPS /mnt/workdir
         ln -sf /mnt/workdir $GITHUB_WORKSPACE/workdir
 
-    - name: 缓存加速
-      uses: actions/cache@v4
-      with:
-        path: |
-          openwrt/dl
-          openwrt/staging_dir/host
-          openwrt/staging_dir/toolchain
-        key: ${{ runner.os }}-openwrt-${{ env.REPO_BRANCH }}-${{ hashFiles('**/feeds.conf.default', '**/Makefile') }}
-        restore-keys: |
-          ${{ runner.os }}-openwrt-${{ env.REPO_BRANCH }}-
-
     - name: 下载固件源码
       working-directory: /mnt/workdir
       run: |
