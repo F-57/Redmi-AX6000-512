@@ -60,7 +60,7 @@ jobs:
         # 5. 设置时区并准备挂载大空间分区
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /mnt/workdir
-        sudo chown $USER:$GROUPS /mnt/workdir
+        sudo chown $USER:$GROUPS /mnt/workdir /mnt/ccache
         ln -sf /mnt/workdir $GITHUB_WORKSPACE/workdir
 
     - name: 下载固件源码
@@ -74,7 +74,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: |
-          openwrt/dl
+          /mnt/workdir/openwrt/dl
           ${{ env.CCACHE_DIR }}
         key: ${{ runner.os }}-hanwckf-${{ env.REPO_BRANCH }}-${{ hashFiles('.config') }}
         restore-keys: |
@@ -166,7 +166,7 @@ jobs:
         echo "ORGANIZE_STATUS=success" >> $GITHUB_ENV
 
     - name: 上传固件到 artifact
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v4
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
         name: OpenWrt_firmware_${{ env.DEVICE_NAME }}_${{ env.FILE_DATE }}
@@ -174,7 +174,7 @@ jobs:
 
     - name: 固件发布
       id: release
-      uses: ncipollo/release-action@main
+      uses: ncipollo/release-action@v1
       if: env.ORGANIZE_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         tag: v${{ env.FILE_DATE }}-redmi_ax6000
