@@ -40,8 +40,11 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
-git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+#git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+#git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+
+# 高级设置
+git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 
 # adguardhome
 git clone https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
@@ -100,12 +103,11 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 
 # 软件包与配置
 echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
-echo "CONFIG_PACKAGE_luci-theme-kucat=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-kucat-config=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
+echo "CONFIG_PACKAGE_luci-app-advanced=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
 echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
