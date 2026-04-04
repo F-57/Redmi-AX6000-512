@@ -46,20 +46,21 @@ jobs:
         # 1. 强力移除 Snap 干扰
         sudo systemctl disable --now snapd.service snapd.socket
         sudo apt-get purge -y snapd
-
-        # 2. 接着清理常见的“空间杀手”
+        
+        # 2. 清理空间杀手
         sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/powershell /usr/share/swift /etc/apt/sources.list.d/*
-
-        # 3. 更新系统并安装 OpenWrt 必备库
-        #sudo -E apt-get -qq update
-        sudo -E apt-get -qq install build-essential clang flex bison g++ gawk gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev dos2unix libfuse-dev ccache
-
-        # 4. 调用官方脚本补充剩下的依赖
+        
+        # 3. 更新系统 (这里只安装最基础的必要软件，移除了无用的复杂依赖)
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install build-essential clang flex bison g++ gawk gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev dos2unix ccache
+        
+        # 4. 只调用这一个官方脚本！它会帮你补齐 immortalwrt 真正需要的依赖
+        # 这样可以完美避开刚才那堆 texlive 垃圾依赖
         sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
-
+        
         # 5. 设置时区并准备挂载大空间分区
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /mnt/workdir
+        sudo mkdir -p /mnt/workdir /mnt/ccache
         sudo chown $USER:$GROUPS /mnt/workdir /mnt/ccache
         ln -sf /mnt/workdir $GITHUB_WORKSPACE/workdir
 
