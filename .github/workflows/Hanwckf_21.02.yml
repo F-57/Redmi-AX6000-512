@@ -93,19 +93,26 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
-    - name: 加载config & DIY_P2_SH
+    - name: 加载配置 & 注入优化
       run: |
+        # 1. 移动原始配置文件
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
-        # --- 注入优化选项 ---
+        
+        # 2. 注入优化选项 (这些必须在 defconfig 之前写入)
         echo "CONFIG_CCACHE=y" >> .config
         echo "CONFIG_CCACHE_DIR=\"${{ env.CCACHE_DIR }}\"" >> .config
         echo "CONFIG_KERNEL_DEBUG_INFO=n" >> .config
         echo "CONFIG_OPENSSL_OPTIMIZE_SPEED=y" >> .config
-        # 针对 512MB Flash 的建议优化
         echo "CONFIG_STRIP_KERNEL_EXPORTS=y" >> .config
+        
+        # 3. 执行自定义脚本 (里面可能还有其他的 sed 修改)
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
+        # 4. 核心：执行 defconfig 同步并校验所有配置
+        # 这是第二次编译不报错的关键，因为它会确保配置文件的指纹是正确的
+        make defconfig
 
     - name: 下载安装包
       id: package
