@@ -85,7 +85,6 @@ jobs:
         # 2. 注入优化选项 (这些必须在 defconfig 之前写入)
         echo "CONFIG_KERNEL_DEBUG_INFO=n" >> .config
         echo "CONFIG_OPENSSL_OPTIMIZE_SPEED=y" >> .config
-        echo "CONFIG_STRIP_KERNEL_EXPORTS=y" >> .config
         
         # 3. 执行自定义脚本 (里面可能还有其他的 sed 修改)
         $GITHUB_WORKSPACE/$DIY_P2_SH
