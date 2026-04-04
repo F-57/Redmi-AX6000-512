@@ -40,8 +40,8 @@ sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/
 
 # Theme
 git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
-#git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-#git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
 
 # 高级设置
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
