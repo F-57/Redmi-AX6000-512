@@ -20,6 +20,9 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $(find ./feeds/luci/modules/luci-m
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $CFG_FILE
 sed -i "s/hostname='.*'/hostname='$WRT_NAME'/g" $CFG_FILE
 
+#修改中文显示
+#sed -i 's/auto/zh_cn/g' feeds/luci/modules/luci-base/root/etc/uci-defaults/luci-base
+
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
 WIFI_SSID="Ax6000"
 WIFI_PASS="cw010203"
