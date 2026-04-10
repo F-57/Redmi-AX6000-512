@@ -77,46 +77,54 @@ mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
 
 
 # 更改菜单名字
-echo -e "\nmsgid \"KuCat Config\"" >> package/luci-app-kucat-config/po/zh_Hans/kucat-config.po
-echo -e "msgstr \"主题设置\"" >> package/luci-app-kucat-config/po/zh_Hans/kucat-config.po
+# 定义一个快捷函数：参数1是文件路径，参数2是原始文字，参数3是目标文字
+change_name() {
+    local file=$1
+    local id=$2
+    local str=$3
+    if [ -f "$file" ]; then
+        # 匹配 msgid 后的下一行 msgstr 并进行替换
+        sed -i "/msgid \"$id\"/{n;s/msgstr \".*\"/msgstr \"$str\"/}" "$file"
+        echo "已修改 $id 为 $str"
+    else
+        echo "跳过：未找到文件 $file"
+    fi
+}
 
-echo -e "\nmsgid \"OpenClash\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
-echo -e "msgstr \"科学上网\"" >> feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po
+# KuCat Config -> 主题设置
+change_name "package/luci-app-kucat-config/po/zh_Hans/kucat-config.po" "KuCat Config" "主题设置"
+# OpenClash -> 科学上网
+change_name "feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po" "OpenClash" "科学上网"
+# MosDNS -> 转发分流
+change_name "package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po" "MosDNS" "转发分流"
+# UPnP -> 即插即用
+change_name "feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po" "UPnP" "即插即用"
+# Lucky -> 大吉大利
+change_name "package/lucky/luci-app-lucky/po/zh_Hans/lucky.po" "Lucky" "大吉大利"
+# OpenList -> 聚合网盘
+change_name "package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po" "OpenList" "聚合网盘"
+# Docker -> 容器
+change_name "package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po" "Docker" "容器"
 
-echo -e "\nmsgid \"MosDNS\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-echo -e "msgstr \"转发分流\"" >> package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po
-
-echo -e "\nmsgid \"UPnP\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
-echo -e "msgstr \"即插即用\"" >> feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po
-
-echo -e "\nmsgid \"Lucky\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-echo -e "msgstr \"大吉大利\"" >> package/lucky/luci-app-lucky/po/zh_Hans/lucky.po
-
-echo -e "\nmsgid \"OpenList\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
-echo -e "msgstr \"聚合网盘\"" >> package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po
-
-echo -e "\nmsgid \"Docker\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
-echo -e "msgstr \"容器\"" >> package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po
-
-#echo -e "\nmsgid \"SmartDNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-#echo -e "msgstr \"优选DNS\"" >> feeds/luci/applications/luci-app-smartdns/po/zh_Hans/smartdns.po
-
-# 更改菜单
+# 移动 eQOS 菜单位置
+[ -f "package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json" ] && \
 sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json
 
-# 软件包与配置
-echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-ttyd=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-autoreboot=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-mwan3=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-syncdial=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-advanced=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-openclash=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-mosdns=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-adguardhome=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-lucky=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-airconnect=y" >> .config
-echo "CONFIG_PACKAGE_luci-app-openlist2=y" >> .config
+# 预置编译选项 (写入 .config)
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-theme-design=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-app-mwan3=y
+CONFIG_PACKAGE_luci-app-syncdial=y
+CONFIG_PACKAGE_luci-app-advanced=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-airconnect=y
+CONFIG_PACKAGE_luci-app-openlist2=y
+EOF
 
-# 修复Coremark编译失败
+# 修复 Coremark 编译失败
 sed -i 's/\tmkdir/\tmkdir -p/g' feeds/packages/utils/coremark/Makefile
