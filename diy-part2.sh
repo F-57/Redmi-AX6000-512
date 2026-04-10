@@ -23,14 +23,16 @@ sed -i "s/hostname='.*'/hostname='$WRT_NAME'/g" $CFG_FILE
 #修改中文显示
 #sed -i 's/auto/zh_cn/g' feeds/luci/modules/luci-base/root/etc/uci-defaults/luci-base
 
+# WIFI 配置
 WIFI_FILE="./package/mtk/applications/mtwifi-cfg/files/mtwifi.sh"
 WIFI_SSID="Ax6000"
 WIFI_PASS="cw010203"
-
-#修改WIFI名称 修改WIFI加密 修改WIFI密码
-sed -i "s/ImmortalWrt/$WIFI_SSID/g" $WIFI_FILE
-sed -i "s/encryption=.*/encryption='sae-mixed'/g" $WIFI_FILE
-sed -i "/set wireless.default_\${dev}.encryption='sae-mixed'/a \\\t\t\t\t\t\set wireless.default_\${dev}.key='$WIFI_PASS'" $WIFI_FILE
+if [ -f "$WIFI_FILE" ]; then
+    sed -i "s/ImmortalWrt/$WIFI_SSID/g" $WIFI_FILE
+    sed -i "s/encryption=.*/encryption='sae-mixed'/g" $WIFI_FILE
+    # 修正追加 Key 的逻辑，确保格式正确
+    sed -i "/set wireless.default_\${dev}.encryption='sae-mixed'/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ set wireless.default_\${dev}.key='$WIFI_PASS'" $WIFI_FILE
+fi
 
 # ttyd自动登录
 sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/ttyd.config
@@ -38,43 +40,33 @@ sed -i "s?/bin/login?/usr/libexec/login.sh?g" feeds/packages/utils/ttyd/files/tt
 # 修改upnp服务地址
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" feeds/luci/applications/luci-app-upnp/htdocs/luci-static/resources/view/upnp/upnp.js
 
-# 512布局
-sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts
+# 512布局 (Redmi AX6000 专用)
+DTS_FILE="target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts"
+[ -f "$DTS_FILE" ] && sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' $DTS_FILE
 
-# Theme
-git clone https://github.com/SAENE/luci-theme-design package/luci-theme-design
-git clone https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-git clone https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+# --- 插件集成 ---
+# 注意：GitHub Actions 环境下建议增加 --depth 1 提高拉取速度
+git clone --depth 1 https://github.com/SAENE/luci-theme-design package/luci-theme-design
+git clone --depth 1 https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+git clone --depth 1 https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
+git clone --depth 1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
+git clone --depth 1 https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
+git clone --depth 1 https://github.com/sbwml/luci-app-airconnect package/airconnect
+git clone --depth 1 https://github.com/sirpdboy/luci-app-lucky package/lucky
 
-# 高级设置
-git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-
-# adguardhome
-git clone https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
-
-# 安装 mosdns
-# 需要 Go 语言 1.26.x 或更高版本
+# Golang 与 MosDNS (特殊处理)
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
-rm -rf feeds/packages/net/v2ray-geodata
-rm -rf feeds/packages/net/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b openwrt-21.02 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 26.x feeds/packages/lang/golang
+rm -rf feeds/packages/net/v2ray-geodata feeds/packages/net/mosdns
+git clone --depth 1 https://github.com/sbwml/luci-app-mosdns -b openwrt-21.02 package/mosdns
+git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-# 安装 luci-app-openlist2 
-git clone https://github.com/sbwml/luci-app-openlist2 package/openlist
-
-# 安装隔空播放luci-app-airconnect
-git clone https://github.com/sbwml/luci-app-airconnect package/airconnect
-
-# 安装lucky
-git clone https://github.com/sirpdboy/luci-app-lucky package/lucky
-
-# 安装 OpenClash
+# OpenClash
 git clone --depth 1 https://github.com/vernesong/openclash.git OpenClash
 rm -rf feeds/luci/applications/luci-app-openclash
 mv OpenClash/luci-app-openclash feeds/luci/applications/luci-app-openclash
-
+rm -rf OpenClash
 
 # 更改菜单名字
 # 定义一个快捷函数：参数1是文件路径，参数2是原始文字，参数3是目标文字
