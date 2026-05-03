@@ -28,10 +28,12 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  TARGET: AX6000
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: 检查项目分支
@@ -59,6 +61,44 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /mnt/workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+    - name: 处理脚本格式
+      run: |
+        find ./ -maxdepth 3 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
+
+    - name: 检查并读取缓存
+      id: check-cache
+      if: env.WRT_TEST != 'true'
+      uses: actions/cache@main
+      with:
+        # 注意：你需要确保 env 中定义了这些变量，或者将 key 修改为固定值
+        key: ${{ env.TARGET }}-${{ env.REPO_BRANCH }}-${{ hashFiles('.config') }}
+        restore-keys: |
+          ${{ env.TARGET }}-${{ env.REPO_BRANCH }}-
+        path: |
+          ./openwrt/.ccache
+          ./openwrt/staging_dir/host*
+          ./openwrt/staging_dir/tool*
+
+    - name: 维护与更新缓存
+      if: env.WRT_TEST != 'true' && !cancelled()
+      run: |
+      
+        if [ -d "./openwrt/staging_dir" ]; then
+          find "./openwrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r DIR; do
+            find "$DIR" -type f -exec touch {} +
+          done
+          mkdir -p ./openwrt/tmp && echo "1" > ./openwrt/tmp/.build
+          echo "已成功跳过工具链!"
+        else
+          echo "缓存丢失!"
+        fi
+
+        # 清理旧缓存（需要 GITHUB_TOKEN 权限）
+        if [ "${{ steps.check-cache.outputs.cache-hit }}" != 'true' ]; then
+          gh cache list --key "${{ env.TARGET }}-${{ env.REPO_BRANCH }}" | cut -f 1 | xargs -r -n 1 gh cache delete || true
+          echo "旧缓存清理完毕!"
+        fi
 
     - name: 加载自定义feeds
       run: |
