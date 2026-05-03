@@ -45,14 +45,20 @@ DTS_FILE="target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-x
 [ -f "$DTS_FILE" ] && sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' $DTS_FILE
 
 # --- 插件集成 ---
-# 注意：GitHub Actions 环境下建议增加 --depth 1 提高拉取速度
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
+# 下载软件包
+git_sparse_clone main https://github.com/F-57/luci-app luci-app-adguardhome airconnect luci-app-airconnect
 git clone --depth 1 https://github.com/SAENE/luci-theme-design package/luci-theme-design
-git clone --depth 1 https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-git clone --depth 1 https://github.com/sirpdboy/luci-app-kucat-config package/luci-app-kucat-config
-git clone --depth 1 https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
-git clone --depth 1 https://github.com/F-57/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
-git clone --depth 1 https://github.com/sbwml/luci-app-airconnect package/airconnect
 git clone --depth 1 https://github.com/sirpdboy/luci-app-lucky package/lucky
 
 # Golang 与 MosDNS (特殊处理)
@@ -83,20 +89,11 @@ change_name() {
     fi
 }
 
-# KuCat Config -> 主题设置
-change_name "package/luci-app-kucat-config/po/zh_Hans/kucat-config.po" "KuCat Config" "主题设置"
-# OpenClash -> 科学上网
 change_name "feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po" "OpenClash" "科学上网"
-# MosDNS -> 转发分流
-change_name "package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po" "MosDNS" "转发分流"
-# UPnP -> 即插即用
+change_name "package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po" "MosDNS" "分流助手"
 change_name "feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po" "UPnP" "即插即用"
-# Lucky -> 大吉大利
 change_name "package/lucky/luci-app-lucky/po/zh_Hans/lucky.po" "Lucky" "大吉大利"
-# OpenList -> 聚合网盘
 change_name "package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po" "OpenList" "聚合网盘"
-# Docker -> 容器
-change_name "package/feeds/luci/luci-app-dockerman/po/zh_Hans/dockerman.po" "Docker" "容器"
 
 # 移动 eQOS 菜单位置
 [ -f "package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json" ] && \
@@ -107,9 +104,6 @@ cat >> .config <<EOF
 CONFIG_PACKAGE_luci-theme-design=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-mwan3=y
-CONFIG_PACKAGE_luci-app-syncdial=y
-CONFIG_PACKAGE_luci-app-advanced=y
 CONFIG_PACKAGE_luci-app-statistics=y
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-mosdns=y
