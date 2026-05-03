@@ -57,9 +57,10 @@ function git_sparse_clone() {
 
 # 下载软件包
 git_sparse_clone main https://github.com/F-57/luci-app luci-app-adguardhome airconnect luci-app-airconnect
+git_sparse_clone main https://github.com/sbwml/luci-app-openlist2 luci-app-openlist2 openlist2
+git_sparse_clone main https://github.com/sirpdboy/luci-app-lucky  luci-app-lucky lucky
 git clone --depth 1 https://github.com/SAENE/luci-theme-design package/luci-theme-design
-git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
-git clone --depth 1 https://github.com/sirpdboy/luci-app-lucky package/lucky
+
 
 # Golang 与 MosDNS (特殊处理)
 rm -rf feeds/packages/lang/golang
@@ -92,8 +93,8 @@ change_name() {
 change_name "feeds/luci/applications/luci-app-openclash/po/zh-cn/openclash.zh-cn.po" "OpenClash" "科学上网"
 change_name "package/mosdns/luci-app-mosdns/po/zh_Hans/mosdns.po" "MosDNS" "分流助手"
 change_name "feeds/luci/applications/luci-app-upnp/po/zh_Hans/upnp.po" "UPnP" "即插即用"
-change_name "package/lucky/luci-app-lucky/po/zh_Hans/lucky.po" "Lucky" "大吉大利"
-change_name "package/openlist/luci-app-openlist2/po/zh_Hans/openlist2.po" "OpenList" "聚合网盘"
+change_name "package/luci-app-lucky/po/zh_Hans/lucky.po" "Lucky" "大吉大利"
+change_name "package/luci-app-openlist2/po/zh_Hans/openlist2.po" "OpenList" "聚合网盘"
 
 # 移动 eQOS 菜单位置
 [ -f "package/mtk/applications/luci-app-eqos-mtk/root/usr/share/luci/menu.d/luci-app-eqos.json" ] && \
