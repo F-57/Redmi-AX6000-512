@@ -28,7 +28,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  TARGET: AX6000
+  TARGET: mt798x
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
