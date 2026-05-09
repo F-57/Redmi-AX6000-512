@@ -104,6 +104,7 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 cat >> .config <<EOF
 CONFIG_LUCI_LANG_en=y
 CONFIG_LUCI_LANG_zh_Hans=y
+CONFIG_PACKAGE_kmod-mtd-rw=y
 CONFIG_PACKAGE_luci-theme-design=y
 CONFIG_PACKAGE_luci-app-upnp=n
 CONFIG_PACKAGE_luci-app-ttyd=n
