@@ -102,16 +102,16 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 
 # 预置编译选项 (写入 .config)
 cat >> .config <<EOF
+
 CONFIG_PACKAGE_luci-theme-design=y
-CONFIG_PACKAGE_luci-app-ttyd=y
-CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-statistics=y
+CONFIG_PACKAGE_luci-app-ttyd=n
+CONFIG_PACKAGE_luci-app-autoreboot=n
 CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-mosdns=n
 CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-lucky=n
 CONFIG_PACKAGE_luci-app-airconnect=y
-CONFIG_PACKAGE_luci-app-openlist2=y
+CONFIG_PACKAGE_luci-app-openlist2=n
 EOF
 
 # 修复 Coremark 编译失败
