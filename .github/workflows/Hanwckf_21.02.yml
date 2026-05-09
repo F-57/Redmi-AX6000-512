@@ -122,6 +122,8 @@ jobs:
         cd openwrt
 
         # 2. 注入优化选项 (这些必须在 defconfig 之前写入)
+        echo "CONFIG_CCACHE=y" >> .config
+        echo "CONFIG_TARGET_ROOTFS_INITRAMFS=n" >> .config
         echo "CONFIG_KERNEL_DEBUG_INFO=n" >> .config
         echo "CONFIG_OPENSSL_OPTIMIZE_SPEED=y" >> .config
         
