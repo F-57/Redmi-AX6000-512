@@ -19,7 +19,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
+  REPO_URL: https://github.com/Yuzhii0718/immortalwrt-mt798x-hanwckf
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -33,7 +33,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
     - name: 检查项目分支
@@ -43,17 +43,12 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo -E apt -yqq purge firefox
-        sudo -E apt -yqq update
-        sudo -E apt -yqq full-upgrade
-        sudo -E apt -yqq autoremove --purge
-        sudo -E apt -yqq autoclean
-        sudo -E apt -yqq clean
-        sudo -E apt -yqq install dos2unix libfuse-dev
+        sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -yqq update
+        sudo -E apt-get -yqq install curl dos2unix python3-netifaces libfuse-dev
         sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
-        sudo -E systemctl daemon-reload
-                
-        # 设置时区并准备挂载大空间分区
+        sudo -E apt-get -yqq autoremove --purge
+        sudo -E apt-get -yqq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /mnt/workdir
         sudo chown $USER:$GROUPS /mnt/workdir
@@ -74,7 +69,6 @@ jobs:
       if: env.WRT_TEST != 'true'
       uses: actions/cache@main
       with:
-        # 注意：你需要确保 env 中定义了这些变量，或者将 key 修改为固定值
         key: ${{ env.TARGET }}-${{ env.REPO_BRANCH }}-${{ hashFiles('.config') }}
         restore-keys: |
           ${{ env.TARGET }}-${{ env.REPO_BRANCH }}-
@@ -86,7 +80,6 @@ jobs:
     - name: 维护与更新缓存
       if: env.WRT_TEST != 'true' && !cancelled()
       run: |
-      
         if [ -d "./openwrt/staging_dir" ]; then
           find "./openwrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r DIR; do
             find "$DIR" -type f -exec touch {} +
@@ -96,8 +89,6 @@ jobs:
         else
           echo "缓存丢失!"
         fi
-
-        # 清理旧缓存（需要 GITHUB_TOKEN 权限）
         if [ "${{ steps.check-cache.outputs.cache-hit }}" != 'true' ]; then
           gh cache list --key "${{ env.TARGET }}-${{ env.REPO_BRANCH }}" | cut -f 1 | xargs -r -n 1 gh cache delete || true
           echo "旧缓存清理完毕!"
@@ -118,19 +109,14 @@ jobs:
 
     - name: 加载配置 & 注入优化
       run: |
-        # 1. 移动原始配置文件
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
-
-        # 2. 注入优化选项 (这些必须在 defconfig 之前写入)
         echo "CONFIG_CCACHE=y" >> .config
         echo "CONFIG_TARGET_ROOTFS_INITRAMFS=n" >> .config
         echo "CONFIG_KERNEL_DEBUG_INFO=n" >> .config
         echo "CONFIG_OPENSSL_OPTIMIZE_SPEED=y" >> .config
-        
-        # 3. 执行自定义脚本 (里面可能还有其他的 sed 修改)
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: 下载安装包
