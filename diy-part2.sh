@@ -102,6 +102,7 @@ sed -i 's/services/network/g' package/mtk/applications/luci-app-eqos-mtk/root/us
 
 # 预置编译选项 (写入 .config)
 cat >> .config <<EOF
+CONFIG_CCACHE=y
 CONFIG_LUCI_LANG_en=y
 CONFIG_LUCI_LANG_zh_Hans=y
 CONFIG_PACKAGE_kmod-mtd-rw=y
