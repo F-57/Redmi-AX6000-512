@@ -112,9 +112,6 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
-        echo "CONFIG_CCACHE=y" >> .config
-        echo "CONFIG_TARGET_ROOTFS_INITRAMFS=n" >> .config
-        echo "CONFIG_OPENSSL_OPTIMIZE_SPEED=y" >> .config
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: 下载安装包
